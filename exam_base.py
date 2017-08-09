@@ -13,7 +13,7 @@ class ExamBase():
     def __get_user_answer(self):
         while True:
             self._ui.draw()
-            user_answer = raw_input('你的答案: ')
+            user_answer = raw_input('输入你的答案: ')
             try:
                 user_answer = int(user_answer)
                 break
@@ -29,15 +29,15 @@ class ExamBase():
 
     def __exit_exam(self):
         self._ui.clear_all_messages()
-        self._ui.set_message(0, '    测试结束')
+        self._ui.set_message(0, '    本次测试结束啦')
         self._ui.draw()
 
     def make_question(self):
          return ('1 + 1 =',), 2
 
-    def show_result(self, is_correct):
-        self._ui.clear_all_messages()
-        self._ui.set_result(is_correct)
+    def show_result(self, answers):
+        #self._ui.clear_all_messages()
+        self._ui.set_result(answers)
         self._ui.set_statistic(self._pass, self._fail)
         self._ui.draw()
 
@@ -48,13 +48,11 @@ class ExamBase():
             user_answer = self.__get_user_answer()
             if answer == user_answer:
                 self._pass += 1
-                is_correct = True
             else:
                 self._fail += 1
-                is_correct = False
-
-            self.show_result(is_correct)
+            answers = (answer, user_answer)
+            self.show_result(answers)
             
-            raw_input('按回车继续: ')
+            raw_input('请按回车继续: ')
 
         self.__exit_exam()

@@ -60,11 +60,12 @@ class ExamUI():
         for i in range(0, 9):
             self._label_messages[i].clear_text()
 
-    def set_result(self, is_correct):
-        if is_correct:
-            self.set_message(0, '    [V] 回答正确')
+    def set_result(self, answers):
+        if answers[0] == answers[1]:
+            self.set_message(0, '    [V] 做得非常棒')
         else:
-            self.set_message(0, '    [X] 回答错误')
+            self.set_message(0, '    [X] 继续加油奥')
+        self.set_message(8, '正确答案:%d 你的答案:%d' % answers)
 
     def set_question(self, question):
         self.set_message(2, question)

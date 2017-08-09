@@ -8,7 +8,7 @@ class MathAdditionExam(ExamBase):
     def make_question(self):
         a = random.choice(range(1,9))
         b = random.choice(range(1,10-a))
-        question = "%d+%d=" % (a,b)
+        question = "%d + %d =" % (a,b)
         answer = a + b
         return (question,), answer
 
