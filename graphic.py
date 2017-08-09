@@ -44,11 +44,3 @@ class Graphic():
         os.system('clear')
         for x in range(0, self._height):
             print ''.join(self._cache[x])
-
-
-if __name__ == "__main__":
-    ui = Graphic(20, 6)
-    ui.set_string(0, 0, 'hello')
-    ui.set_string(0, 1, '你好ABCD欢迎')
-    ui.draw()
-

@@ -13,5 +13,5 @@ class MathSubtractionExam(ExamBase):
         return (question,), answer
 
 if __name__ == "__main__":
-    t = MathSubtractionExam('    十以内减法测试')
-    t.start(3)
+    t = MathSubtractionExam('十以内减法测试')
+    t.start(10)

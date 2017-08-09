@@ -4,17 +4,40 @@
 import random
 from exam_base import ExamBase
 
+class ChineseCharacterQuestion():
+    def __init__(self, db):
+        self._db = db
+        self._questions = list()
+
+    def load_db(self):
+        with open(self._db) as f:
+            for line in f.readlines():
+                line = line.strip()
+                if len(line) == 0:
+                    continue
+                if line.startswith('#'):
+                    continue
+                q = line.split('|')
+                if len(q) == 0:
+                    continue
+                self._questions.append((q[:-1],int(q[-1])))
+        return len(self._questions) > 0
+
+    def get_next(self):
+        which_one = random.choice(range(0, len(self._questions)))
+        return self._questions[which_one]
+
+
 class ChineseCharacterExam(ExamBase):
+    def __init__(self, title, db):
+        ExamBase.__init__(self, title)
+        self._question = ChineseCharacterQuestion(db)
+        if not self._question.load_db():
+            print 'no questions'
+
     def make_question(self):
-        #TODO: Add new class to load DB and generate questions
-        #      this function just choose question by random
-        with open('questions.db') as f:
-            lines = f.readlines()
-            i = random.choice(range(0, len(lines)))
-            q = lines[i].split('|')
-        #return ('Q','A1','A2', 'A3'), int(q[3])
-        return (q[0], q[1], q[2]), int(q[3])
+        return self._question.get_next()
 
 if __name__ == "__main__":
-    t = ChineseCharacterExam('    汉字认字测试')
-    t.start(3)
+    t = ChineseCharacterExam('汉字认字测试', 'questions.db')
+    t.start(10)

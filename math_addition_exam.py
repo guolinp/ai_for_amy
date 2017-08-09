@@ -13,5 +13,5 @@ class MathAdditionExam(ExamBase):
         return (question,), answer
 
 if __name__ == "__main__":
-    t = MathAdditionExam('    十以内加法测试')
-    t.start(5)
+    t = MathAdditionExam('十以内加法测试')
+    t.start(10)

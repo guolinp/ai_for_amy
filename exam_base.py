@@ -58,7 +58,3 @@ class ExamBase():
             raw_input('按回车继续: ')
 
         self.__exit_exam()
-
-
-#e = ExamBase('        数学测试        ')
-#e.start(2)

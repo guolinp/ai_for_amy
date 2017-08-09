@@ -41,7 +41,7 @@ class ExamUI():
         self.set_statistic(0, 0)
 
     def set_title(self, title):
-        self._label_title.set_text(title)
+        self._label_title.set_text('        %s' % title)
 
     def set_statistic(self, num_pass, num_fail):
         self._label_stat.set_text('正确: %02d        错误: %02d' % (num_pass, num_fail))
@@ -76,15 +76,3 @@ class ExamUI():
         
     def draw(self):
         self._panel.draw()
-
-
-
-#t = ExamUI('    数学测试')
-#t.set_pass_result()
-#t.set_question('1+1=?')
-#t.set_choice(1, 'A')
-#t.set_choice(2, 'B')
-#t.set_choice(3, 'C')
-#t.set_choice(4, 'D')
-#t.set_choice(5, 'E')
-#t.draw()
