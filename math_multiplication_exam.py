@@ -4,11 +4,13 @@
 import random
 from exam_base import ExamBase
 
+
 class MathMulitplicationExam(ExamBase):
+
     def make_question(self):
-        a = random.choice(range(1,10))
-        b = random.choice(range(1,10))
-        question = "%d x %d =" % (a,b)
+        a = random.choice(range(1, 10))
+        b = random.choice(range(1, 10))
+        question = "%d x %d =" % (a, b)
         answer = a * b
         return (question,), answer
 

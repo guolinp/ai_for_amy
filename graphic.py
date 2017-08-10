@@ -1,9 +1,11 @@
 #!/usr/bin/python
 #-*-coding:utf-8-*-
 
-import os 
+import os
+
 
 class Graphic():
+
     def __init__(self, width, height):
         self._width = width
         self._height = height
@@ -27,13 +29,13 @@ class Graphic():
     def set_char(self, x, y, char):
         if self.__in_range(x, y):
             self._cache[y][x] = char
-        #else:
+        # else:
         #    print 'out of range'
 
     def set_string(self, x, y, string):
-       str_len = len(string)
-       for i in range(0, str_len):
-           self.set_char(x + i, y, string[i])
+        str_len = len(string)
+        for i in range(0, str_len):
+            self.set_char(x + i, y, string[i])
 
     def clear(self):
         for x in range(0, self._height):

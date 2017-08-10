@@ -4,7 +4,9 @@
 import random
 from exam_base import ExamBase
 
+
 class ChineseCharacterQuestion():
+
     def __init__(self, db):
         self._db = db
         self._questions = list()
@@ -20,7 +22,7 @@ class ChineseCharacterQuestion():
                 q = line.split('|')
                 if len(q) == 0:
                     continue
-                self._questions.append((q[:-1],int(q[-1])))
+                self._questions.append((q[:-1], int(q[-1])))
         return len(self._questions) > 0
 
     def get_next(self):
@@ -29,6 +31,7 @@ class ChineseCharacterQuestion():
 
 
 class ChineseCharacterExam(ExamBase):
+
     def __init__(self, title, db):
         ExamBase.__init__(self, title)
         self._question = ChineseCharacterQuestion(db)

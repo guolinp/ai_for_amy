@@ -4,7 +4,9 @@
 from exam_ui import ExamUI
 import random
 
+
 class ExamBase():
+
     def __init__(self, title):
         self._pass = 0
         self._fail = 0
@@ -33,10 +35,10 @@ class ExamBase():
         self._ui.draw()
 
     def make_question(self):
-         return ('1 + 1 =',), 2
+        return ('1 + 1 =',), 2
 
     def show_result(self, answers):
-        #self._ui.clear_all_messages()
+        # self._ui.clear_all_messages()
         self._ui.set_result(answers)
         self._ui.set_statistic(self._pass, self._fail)
         self._ui.draw()
@@ -52,7 +54,7 @@ class ExamBase():
                 self._fail += 1
             answers = (answer, user_answer)
             self.show_result(answers)
-            
+
             raw_input('请按回车继续: ')
 
         self.__exit_exam()

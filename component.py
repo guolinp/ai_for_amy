@@ -1,10 +1,12 @@
 #!/usr/bin/python
 #-*-coding:utf-8-*-
 
-import os 
+import os
 import graphic
 
+
 class Component():
+
     def __init__(self, x_pos, y_pos):
         self._x_pos = x_pos
         self._y_pos = y_pos
@@ -12,7 +14,9 @@ class Component():
     def draw(self, g):
         pass
 
+
 class Label(Component):
+
     def __init__(self, x_pos, y_pos, text=None):
         Component.__init__(self, x_pos, y_pos)
         self._text = text

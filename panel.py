@@ -1,11 +1,13 @@
 #!/usr/bin/python
 #-*-coding:utf-8-*-
 
-import os 
+import os
 from graphic import Graphic
 from component import *
 
+
 class Panel():
+
     def __init__(self, width, height):
         self._g = Graphic(width, height)
         self._components = list()

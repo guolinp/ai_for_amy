@@ -5,25 +5,27 @@ import random
 from component import Label
 from panel import Panel
 
+
 class ExamUI():
+
     def __init__(self, title=None):
         self._panel = Panel(32, 16)
 
         self._panel.add_component(Label(0, 1, '--------------------------------'))
-       #self._panel.add_component(Label(0, 2, ' _label_ title                  '))
+       # self._panel.add_component(Label(0, 2, ' _label_ title                  '))
         self._panel.add_component(Label(0, 3, '--------------------------------'))
-       #self._panel.add_component(Label(0, 4, ' _label_stat                    '))
+       # self._panel.add_component(Label(0, 4, ' _label_stat                    '))
         self._panel.add_component(Label(0, 5, '--------------------------------'))
-       #self._panel.add_component(Label(0, 6, '                                '))
-       #self._panel.add_component(Label(0, 7, '                                '))
-       #self._panel.add_component(Label(0, 8, '                                '))
-       #self._panel.add_component(Label(0, 9, '                                '))
-       #self._panel.add_component(Label(0,10, '                                '))
-       #self._panel.add_component(Label(0,11, '                                '))
-       #self._panel.add_component(Label(0,12, '                                '))
-       #self._panel.add_component(Label(0,13, '                                '))
-       #self._panel.add_component(Label(0,14, '                                '))
-        self._panel.add_component(Label(0,15, '--------------------------------'))
+       # self._panel.add_component(Label(0, 6, '                                '))
+       # self._panel.add_component(Label(0, 7, '                                '))
+       # self._panel.add_component(Label(0, 8, '                                '))
+       # self._panel.add_component(Label(0, 9, '                                '))
+       # self._panel.add_component(Label(0,10, '                                '))
+       # self._panel.add_component(Label(0,11, '                                '))
+       # self._panel.add_component(Label(0,12, '                                '))
+       # self._panel.add_component(Label(0,13, '                                '))
+       # self._panel.add_component(Label(0,14, '                                '))
+        self._panel.add_component(Label(0, 15, '--------------------------------'))
 
         self._label_title = Label(0, 2)
         self._label_stat = Label(0, 4)
@@ -74,6 +76,6 @@ class ExamUI():
         if index < 1 or index > 4:
             return
         self.set_message(2 + index, '  %d. %s' % (index, choice))
-        
+
     def draw(self):
         self._panel.draw()
